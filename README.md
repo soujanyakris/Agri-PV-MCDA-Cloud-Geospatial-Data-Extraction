@@ -5,9 +5,11 @@ This repository demonstrates a **cloud based** approach to geospatial data procu
 
 Standard Land Use/Land Cover (LULC) datasets (like ESA WorldCover) are massive (~17GB+). Downloading and clipping these manually is inefficient. This workflow uses cloud-computation to:
 
-- Filter the global 2021 ESA WorldCover 10m dataset.
+- Load a dataset from Earth Engine called GAUL (Global Administrative Unit Layers) provided by FAO. Here, "level1" = state-level boundaries and Filter for Karnataka.
 
-- Clip the data to the Karnataka state boundary.
+- Load the ESA WorldCover dataset as one global image.
+  
+- Clip the boundary for Karnataka
 
 - Isolate "Class 40" (Cropland) for Agrivoltaic suitability analysis.
 
@@ -87,8 +89,6 @@ To ensure the file was manageable for local MCDA (Multi-Criteria Decision Analys
 ```
 # Define output filename
 output_file = "karnataka_cropland_new.tif"
-
-print(f"Starting export for {output_file}...")
 
 # Export locally using geemap
 
